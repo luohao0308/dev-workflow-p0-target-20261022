@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "enabledCapabilities": [
+    "release"
+  ],
+  "commands": {},
+  "documents": {},
+  "extensions": {
+    "release": {
+      "strategy": "semver-tag",
+      "tagPrefix": "v",
+      "components": []
+    }
+  }
+}
