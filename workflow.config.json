@@ -1,15 +1,69 @@
 {
   "schemaVersion": 1,
   "enabledCapabilities": [
-    "release"
+    "deployment:compose"
   ],
-  "commands": {},
-  "documents": {},
+  "commands": {
+    "preflight": {
+      "command": "false",
+      "cwd": "."
+    },
+    "deploy": {
+      "command": "false",
+      "cwd": "."
+    },
+    "health": {
+      "command": "false",
+      "cwd": "."
+    },
+    "smoke": {
+      "command": "false",
+      "cwd": "."
+    },
+    "rollback": {
+      "command": "false",
+      "cwd": "."
+    },
+    "backup": {
+      "command": "false",
+      "cwd": "."
+    },
+    "restore": {
+      "command": "false",
+      "cwd": "."
+    },
+    "migrate": {
+      "command": "false",
+      "cwd": "."
+    }
+  },
   "extensions": {
-    "release": {
-      "strategy": "semver-tag",
-      "tagPrefix": "v",
-      "components": []
+    "deployment": {
+      "components": [
+        "web",
+        "api"
+      ],
+      "environments": {
+        "staging": {
+          "capability": "deployment:compose",
+          "target": "p1-isolated",
+          "production": false,
+          "components": [
+            "web",
+            "api"
+          ],
+          "commands": {
+            "preflight": "preflight",
+            "deploy": "deploy",
+            "health": "health",
+            "smoke": "smoke",
+            "rollback": "rollback",
+            "backup": "backup",
+            "restore": "restore",
+            "migrate": "migrate"
+          }
+        }
+      }
     }
   }
 }
