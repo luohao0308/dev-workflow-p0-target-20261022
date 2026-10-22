@@ -1,4 +1,6 @@
-FROM busybox:1.37.0-musl
+FROM python:3.12-alpine
+COPY server.py /server.py
 COPY release.txt /release.txt
 USER 65534
-CMD ["sleep", "3600"]
+EXPOSE 8080
+CMD ["python", "-B", "/server.py"]
